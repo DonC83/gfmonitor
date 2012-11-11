@@ -8,6 +8,11 @@ package org.greyhope.gf.mon.framework;
  *
  * @author greyhope
  */
-public class FeatureAdapter {
+public class FeatureAdapter implements FeatureListener{
+
+    @Override
+    public void featureChanged(FeatureEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }

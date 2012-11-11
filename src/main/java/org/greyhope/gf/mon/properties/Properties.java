@@ -26,6 +26,9 @@ public class Properties {
     public static String DOMAIN_USER;
     public static String DOMAIN_PASSWORD;
     
+    public static int INITIAL_DELAY_POLLER_THREAD;
+    public static int INTERVAL_DELAY_POLLER_THREAD;
+    
     private static final int SSL = 1;
     private static final int NON_SSL = 0;
     
@@ -46,6 +49,8 @@ public class Properties {
             KEYSTORE_PASSWORD = properties.getString("keystore.password");
             APP_CONNECTION = properties.getString("app.connection");
             THREADS = properties.getInt("threads.number");
+            INITIAL_DELAY_POLLER_THREAD = properties.getInt("initial.delay");
+            INTERVAL_DELAY_POLLER_THREAD = properties.getInt("interval.delay");
             
             DOMAIN_USER = properties.getString("domain.user");
             DOMAIN_PASSWORD = properties.getString("domain.password");

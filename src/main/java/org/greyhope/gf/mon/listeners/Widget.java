@@ -1,5 +1,6 @@
 package org.greyhope.gf.mon.listeners;
 
+import java.util.Date;
 import org.greyhope.gf.mon.framework.FeatureEvent;
 import org.greyhope.gf.mon.framework.FeatureListener;
 
@@ -17,6 +18,7 @@ public class Widget implements FeatureListener{
 
     @Override
     public void featureChanged(FeatureEvent e) {
+        System.out.println("**** FEATURE CHANGED ****");
         System.out.println("Monitoring feature : " + e.getFeature().get_name());
         System.out.println("Count : " + e.getFeature().get_count());
         System.out.println("Current : " + e.getFeature().get_current());
@@ -30,6 +32,7 @@ public class Widget implements FeatureListener{
         System.out.println("Start time : " + e.getFeature().get_starttime());
         System.out.println("Unit : " + e.getFeature().get_unit());
         System.out.println("Upper bound : " + e.getFeature().get_upperbound());
+        System.out.println("**** FEATURE CHANGED : " + new Date() +" ****");
     }
     
 }

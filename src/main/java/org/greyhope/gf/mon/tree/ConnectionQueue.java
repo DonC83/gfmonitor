@@ -12,7 +12,7 @@ import org.greyhope.gf.mon.framework.Feature;
  */
 public class ConnectionQueue {
     
-    private static final String URL = "/monitoring/domain/server/network/connection-queue";
+    public static final String URL = "server/network/connection-queue";
     private Feature countopenconnections;
     private Feature countoverflows;
     private Feature countqueued;
