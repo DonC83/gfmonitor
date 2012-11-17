@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.greyhope.gf.mon.queue;
+package org.greyhope.gf.mon.lists;
 
 import java.util.LinkedList;
 

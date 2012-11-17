@@ -4,25 +4,29 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import org.greyhope.gf.mon.framework.Application;
+import org.greyhope.gf.mon.lists.ApplicationList;
 import org.greyhope.gf.mon.properties.Properties;
-import org.greyhope.gf.mon.queue.MonitoringStack;
+import org.greyhope.gf.mon.lists.MonitoringStack;
 import org.greyhope.gf.mon.rest.RestClient;
-import org.greyhope.gf.mon.tasks.ClientTask;
+import org.greyhope.gf.mon.tasks.ConnectionQueueTask;
+import org.greyhope.gf.mon.utils.Functions;
 
 public class Starter {
     
-    RestClient client = null;
+    private RestClient client = null;
     
+    private static ApplicationList<Application> applicationList;
     private static String monitoringResource = null;
     private static String resourceType = null;
     
    // Executor Scheduler Services
-    private ScheduledExecutorService clientTaskScheduler = null;
+    private ScheduledExecutorService mainWindowTaskScheduler = null;
     
     public Starter(Properties.CONNECTION connectionType) throws Exception {
         
         // Prolly should create one thread to manage a few monitoring nodes
-       clientTaskScheduler = Executors.newScheduledThreadPool(Properties.THREADS);
+       mainWindowTaskScheduler = Executors.newScheduledThreadPool(Properties.THREADS);
        
        MonitoringStack.init();
        
@@ -33,6 +37,9 @@ public class Starter {
     public static void main(String[] args) {
 
         Properties.init();
+        Functions.init();
+        
+        applicationList = new ApplicationList<Application>();
         
         try {
             Starter src = new Starter(Properties.appConnection);
@@ -42,8 +49,8 @@ public class Starter {
     }
     
     private void initService(Properties.CONNECTION connectionType){
-         Runnable clientTask = new ClientTask(connectionType,Properties.BASE_URL.toString());
-         ScheduledFuture<?> pollerTaskFuture = clientTaskScheduler.scheduleWithFixedDelay(
+         Runnable clientTask = new ConnectionQueueTask(connectionType,Properties.BASE_URL.toString());
+         ScheduledFuture<?> pollerTaskFuture = mainWindowTaskScheduler.scheduleWithFixedDelay(
                 clientTask, Properties.INITIAL_DELAY_POLLER_THREAD,
                 Properties.INTERVAL_DELAY_POLLER_THREAD, TimeUnit.SECONDS);
     }

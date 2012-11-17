@@ -8,7 +8,7 @@ import org.greyhope.gf.mon.framework.FeatureEvent;
 import org.greyhope.gf.mon.listeners.Widget;
 import org.greyhope.gf.mon.properties.Properties;
 import org.greyhope.gf.mon.properties.Properties.CONNECTION;
-import org.greyhope.gf.mon.queue.MonitoringStack;
+import org.greyhope.gf.mon.lists.MonitoringStack;
 import org.greyhope.gf.mon.rest.RestClient;
 import org.greyhope.gf.mon.tree.ConnectionQueue;
 import org.jdom2.JDOMException;
@@ -17,7 +17,7 @@ import org.jdom2.JDOMException;
  *
  * @author greyhope
  */
-public class ClientTask implements Runnable{
+public class ConnectionQueueTask implements Runnable{
     
     private RestClient client;
     private String name;
@@ -25,7 +25,7 @@ public class ClientTask implements Runnable{
     private String baseURL;
     private String resource;
     
-    public ClientTask(Properties.CONNECTION connectionType, String baseUrl){
+    public ConnectionQueueTask(Properties.CONNECTION connectionType, String baseUrl){
         connType = connectionType;
         client = new RestClient(connType);
         baseURL = baseUrl;
