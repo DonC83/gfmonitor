@@ -27,6 +27,5 @@ public class MonitoringStack {
     
     public static void init(){
         STACK.push("server/network/connection-queue");
-        
     }
 }

@@ -1,11 +1,9 @@
 package org.greyhope.gf.mon.start;
 
-import org.greyhope.gf.mon.listeners.Widget;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-import org.greyhope.gf.mon.framework.Feature;
 import org.greyhope.gf.mon.properties.Properties;
 import org.greyhope.gf.mon.queue.MonitoringStack;
 import org.greyhope.gf.mon.rest.RestClient;
