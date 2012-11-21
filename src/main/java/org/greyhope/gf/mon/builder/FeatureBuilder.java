@@ -4,7 +4,7 @@ import java.beans.Expression;
 import java.beans.Statement;
 import java.lang.reflect.Field;
 import java.util.List;
-import org.greyhope.gf.mon.framework.Feature;
+import org.greyhope.gf.mon.framework.BaseFeature;
 import org.jdom2.Attribute;
 import org.jdom2.Element;
 
@@ -63,9 +63,9 @@ public class FeatureBuilder {
      * @return result
      *
      */
-    public static Feature buildFeature(String name, List<Element> elements) throws Exception {
+    public static BaseFeature buildFeature(String name, List<Element> elements) throws Exception {
 
-        Object result = new Feature(name);
+        Object result = new BaseFeature(name);
         
         Statement stmt;
         Expression expr;
@@ -82,6 +82,6 @@ public class FeatureBuilder {
                 stmt.execute();
             }
         }
-        return (Feature) result;
+        return (BaseFeature) result;
     }
 }

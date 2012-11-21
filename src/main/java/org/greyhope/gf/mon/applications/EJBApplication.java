@@ -1,9 +1,11 @@
-package org.greyhope.gf.mon.framework;
+package org.greyhope.gf.mon.applications;
 
 /**
  *
  * @author greyhope
  */
 public class EJBApplication implements Application{
+    
+    
     
 }

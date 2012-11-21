@@ -4,7 +4,7 @@
  */
 package org.greyhope.gf.mon.tree;
 
-import org.greyhope.gf.mon.framework.Feature;
+import org.greyhope.gf.mon.framework.BaseFeature;
 
 /**
  *
@@ -13,106 +13,108 @@ import org.greyhope.gf.mon.framework.Feature;
 public class ConnectionQueue {
     
     public static final String URL = "server/network/connection-queue";
-    private Feature countopenconnections;
-    private Feature countoverflows;
-    private Feature countqueued;
-    private Feature countqueued15minutesaverage;
-    private Feature countqueued1minuteaverage;
-    private Feature countqueued5minutesaverage;
-    private Feature counttotalconnections;
-    private Feature counttotalqueued;
-    private Feature maxqueued;
-    private Feature peakqueued;
-    private Feature tickstotalqueued;
+    public static final String XPATH = "//entry/map/entry/map/entry[@key='%']/map/*";
+    
+    private BaseFeature countopenconnections;
+    private BaseFeature countoverflows;
+    private BaseFeature countqueued;
+    private BaseFeature countqueued15minutesaverage;
+    private BaseFeature countqueued1minuteaverage;
+    private BaseFeature countqueued5minutesaverage;
+    private BaseFeature counttotalconnections;
+    private BaseFeature counttotalqueued;
+    private BaseFeature maxqueued;
+    private BaseFeature peakqueued;
+    private BaseFeature tickstotalqueued;
 
     public ConnectionQueue() {
     }
 
-    public Feature get_countopenconnections() {
+    public BaseFeature get_countopenconnections() {
         return countopenconnections;
     }
 
-    public void set_countopenconnections(Feature countopenconnections) {
+    public void set_countopenconnections(BaseFeature countopenconnections) {
         this.countopenconnections = countopenconnections;
     }
 
-    public Feature get_countoverflows() {
+    public BaseFeature get_countoverflows() {
         return countoverflows;
     }
 
-    public void set_countoverflows(Feature countoverflows) {
+    public void set_countoverflows(BaseFeature countoverflows) {
         this.countoverflows = countoverflows;
     }
 
-    public Feature get_countqueued() {
+    public BaseFeature get_countqueued() {
         return countqueued;
     }
 
-    public void set_countqueued(Feature countqueued) {
+    public void set_countqueued(BaseFeature countqueued) {
         this.countqueued = countqueued;
     }
 
-    public Feature get_countqueued15minutesaverage() {
+    public BaseFeature get_countqueued15minutesaverage() {
         return countqueued15minutesaverage;
     }
 
-    public void set_countqueued15minutesaverage(Feature countqueued15minutesaverage) {
+    public void set_countqueued15minutesaverage(BaseFeature countqueued15minutesaverage) {
         this.countqueued15minutesaverage = countqueued15minutesaverage;
     }
 
-    public Feature get_countqueued1minuteaverage() {
+    public BaseFeature get_countqueued1minuteaverage() {
         return countqueued1minuteaverage;
     }
 
-    public void set_countqueued1minuteaverage(Feature countqueued1minuteaverage) {
+    public void set_countqueued1minuteaverage(BaseFeature countqueued1minuteaverage) {
         this.countqueued1minuteaverage = countqueued1minuteaverage;
     }
 
-    public Feature get_countqueued5minutesaverage() {
+    public BaseFeature get_countqueued5minutesaverage() {
         return countqueued5minutesaverage;
     }
 
-    public void set_countqueued5minutesaverage(Feature countqueued5minutesaverage) {
+    public void set_countqueued5minutesaverage(BaseFeature countqueued5minutesaverage) {
         this.countqueued5minutesaverage = countqueued5minutesaverage;
     }
 
-    public Feature get_counttotalconnections() {
+    public BaseFeature get_counttotalconnections() {
         return counttotalconnections;
     }
 
-    public void set_counttotalconnections(Feature counttotalconnections) {
+    public void set_counttotalconnections(BaseFeature counttotalconnections) {
         this.counttotalconnections = counttotalconnections;
     }
 
-    public Feature get_counttotalqueued() {
+    public BaseFeature get_counttotalqueued() {
         return counttotalqueued;
     }
 
-    public void set_counttotalqueued(Feature counttotalqueued) {
+    public void set_counttotalqueued(BaseFeature counttotalqueued) {
         this.counttotalqueued = counttotalqueued;
     }
 
-    public Feature get_maxqueued() {
+    public BaseFeature get_maxqueued() {
         return maxqueued;
     }
 
-    public void set_maxqueued(Feature maxqueued) {
+    public void set_maxqueued(BaseFeature maxqueued) {
         this.maxqueued = maxqueued;
     }
 
-    public Feature get_peakqueued() {
+    public BaseFeature get_peakqueued() {
         return peakqueued;
     }
 
-    public void set_peakqueued(Feature peakqueued) {
+    public void set_peakqueued(BaseFeature peakqueued) {
         this.peakqueued = peakqueued;
     }
 
-    public Feature get_tickstotalqueued() {
+    public BaseFeature get_tickstotalqueued() {
         return tickstotalqueued;
     }
 
-    public void set_tickstotalqueued(Feature tickstotalqueued) {
+    public void set_tickstotalqueued(BaseFeature tickstotalqueued) {
         this.tickstotalqueued = tickstotalqueued;
     }
 

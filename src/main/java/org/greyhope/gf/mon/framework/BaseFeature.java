@@ -6,7 +6,7 @@ import java.io.Serializable;
  *
  * @author greyhope
  */
-public class Feature extends ListenerComponent implements Serializable{
+public class BaseFeature extends ListenerComponent implements Serializable{
     
      private long _count;
     private String _highwatermark;
@@ -22,7 +22,7 @@ public class Feature extends ListenerComponent implements Serializable{
     private String _mintime;
     private String _maxtime;
 
-    public Feature(String name) {
+    public BaseFeature(String name) {
         
         super();
         
@@ -160,7 +160,7 @@ public class Feature extends ListenerComponent implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Feature other = (Feature) obj;
+        final BaseFeature other = (BaseFeature) obj;
         if (this._count != other._count) {
             return false;
         }

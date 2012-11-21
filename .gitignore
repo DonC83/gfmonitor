@@ -8,3 +8,13 @@
 .DS_Store
 
 nbactions.xml
+
+dependency-reduced-pom.xml
+
+target/classes/gm/conf/settings.conf
+
+target/maven-archiver/pom.properties
+
+target/surefire-reports/TEST-org.greyhope.gf.monitoring.AppTest.xml
+
+target/surefire-reports/org.greyhope.gf.monitoring.AppTest.txt

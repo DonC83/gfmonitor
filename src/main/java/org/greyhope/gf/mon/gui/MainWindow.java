@@ -4,6 +4,7 @@ import com.googlecode.lanterna.gui.Border;
 import com.googlecode.lanterna.gui.Window;
 import com.googlecode.lanterna.gui.component.Panel;
 import com.googlecode.lanterna.terminal.TerminalSize;
+import org.greyhope.gf.mon.properties.Properties;
 
 /**
  *
@@ -11,7 +12,7 @@ import com.googlecode.lanterna.terminal.TerminalSize;
  */
 public class MainWindow extends Window{
     
-    public MainWindow(){
+    public MainWindow(Properties.CONNECTION connectionType){
         super("");
         
         TerminalSize size = new TerminalSize(170,62);

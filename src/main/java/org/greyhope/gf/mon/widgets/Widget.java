@@ -1,4 +1,4 @@
-package org.greyhope.gf.mon.listeners;
+package org.greyhope.gf.mon.widgets;
 
 import java.util.Date;
 import org.greyhope.gf.mon.framework.FeatureEvent;

@@ -1,4 +1,4 @@
-package org.greyhope.gf.mon.framework;
+package org.greyhope.gf.mon.applications;
 
 /**
  *
