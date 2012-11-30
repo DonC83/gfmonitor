@@ -24,18 +24,18 @@ public class ConsoleMonitoring {
         this.mainWindow = mainWindow;
     }
     
-    public ConsoleMonitoring(Properties.CONNECTION connectionType){
+    public ConsoleMonitoring(Properties.CONNECTION connectionType,HostPanel h,DomainPanel d,RamPanel r){
         screen = TerminalFacade.createScreen(new SwingTerminal());
         screen.startScreen();
         ConsoleMonitoring.guiScreen = TerminalFacade.createGUIScreen(screen);
         ConsoleMonitoring.conn = connectionType;
-        build();
+        build(h,d,r);
     }
     
-    private void build(){
+    private void build(HostPanel h,DomainPanel d,RamPanel r){
         
         // Create the host window
-        mainWindow = new MainWindow(conn);
+        mainWindow = new MainWindow(conn,h,d,r);
         ConsoleMonitoring.guiScreen.showWindow(mainWindow, GUIScreen.Position.CENTER);
         
     }

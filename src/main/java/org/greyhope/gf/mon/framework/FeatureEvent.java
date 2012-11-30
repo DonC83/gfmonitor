@@ -4,27 +4,20 @@
  */
 package org.greyhope.gf.mon.framework;
 
-import java.util.List;
-import org.greyhope.gf.mon.applications.Application;
-
 /**
  *
  * @author greyhope
  */
 public class FeatureEvent {
     
-    private BaseFeature feature;
+    private Object feature;
     private String name;
-    private List<Application> apps;
 
-    public List<Application> getApps() {
-        return apps;
+    public FeatureEvent(Object feature, String name) {
+        this.feature = feature;
+        this.name = name;
     }
-
-    public void setApps(List<Application> apps) {
-        this.apps = apps;
-    }
-
+    
     public String getName() {
         return name;
     }
@@ -33,11 +26,11 @@ public class FeatureEvent {
         this.name = name;
     }
     
-    public BaseFeature getFeature() {
+    public Object getFeature() {
         return feature;
     }
 
-    public void setFeature(BaseFeature feature) {
+    public void setFeature(Object feature) {
         this.feature = feature;
     }
     

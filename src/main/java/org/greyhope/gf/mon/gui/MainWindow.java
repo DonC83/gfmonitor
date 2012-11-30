@@ -12,7 +12,11 @@ import org.greyhope.gf.mon.properties.Properties;
  */
 public class MainWindow extends Window{
     
-    public MainWindow(Properties.CONNECTION connectionType){
+    HostPanel hostPanel;
+    DomainPanel domainPanel;
+    RamPanel ramPanel;
+    
+    public MainWindow(Properties.CONNECTION connectionType,HostPanel h,DomainPanel d,RamPanel r){
         super("");
         
         TerminalSize size = new TerminalSize(170,62);
@@ -20,9 +24,9 @@ public class MainWindow extends Window{
         
         Panel statusPanel = new Panel(new Border.Invisible(), Panel.Orientation.HORISONTAL);
         
-        HostPanel hostPanel = new HostPanel();
-        DomainPanel domainPanel = new DomainPanel();
-        RamPanel ramPanel = new RamPanel();
+        hostPanel = h;
+        domainPanel = d;
+        ramPanel = r;
 
         statusPanel.addComponent(hostPanel);
         statusPanel.addComponent(domainPanel);

@@ -22,6 +22,9 @@ public class Properties {
     public static StringBuilder BASE_URL;
     public static String APP_CONNECTION;
     public static int THREADS;
+    public static String HOST;
+    public static int PORT;
+    public static String DOMAIN;
     
     public static String DOMAIN_USER;
     public static String DOMAIN_PASSWORD;
@@ -51,6 +54,9 @@ public class Properties {
             THREADS = properties.getInt("threads.number");
             INITIAL_DELAY_POLLER_THREAD = properties.getInt("initial.delay");
             INTERVAL_DELAY_POLLER_THREAD = properties.getInt("interval.delay");
+            HOST = properties.getString("host");
+            PORT = properties.getInt("port");
+            DOMAIN = properties.getString("domain");
             
             DOMAIN_USER = properties.getString("domain.user");
             DOMAIN_PASSWORD = properties.getString("domain.password");

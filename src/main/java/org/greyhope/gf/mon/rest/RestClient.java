@@ -40,11 +40,13 @@ public class RestClient {
         switch (connectionType) {
 
             case SSL:
+                System.out.println("SSL Connection");
                 mc = new MonitoringConnection<DefaultConnection>(new SSLConnection());
                 config.getProperties().put(com.sun.jersey.client.urlconnection.HTTPSProperties.PROPERTY_HTTPS_PROPERTIES, new com.sun.jersey.client.urlconnection.HTTPSProperties(mc.getHostnameVerifier(), mc.getSSLContext()));
                 break;
 
             case NON:
+                System.out.println("NON SSL Connection");
                 mc = new MonitoringConnection<DefaultConnection>(new NonSSLConnection());
                 break;
 

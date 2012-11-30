@@ -33,12 +33,18 @@ public class JDomReader {
         SAXBuilder builder = new SAXBuilder();
         Document document = builder.build(is);
         List<BaseFeature> allFeatures = new ArrayList<BaseFeature>();
+        String fieldName;
         
         for(Field field : FeatureBuilder.getFields(clazz)){
             if(field.getName().equals("URL") || field.getName().equals("XPATH")){
                 
             }else{
-                XPathExpression xpathExpression = XPathFactory.instance().compile(xpath.replaceAll("%", field.getName()));
+                
+                fieldName = Functions.getField(field.getName());
+                
+                //System.out.println("Field Name : " + fieldName);
+                
+                XPathExpression xpathExpression = XPathFactory.instance().compile(xpath.replaceAll("%", fieldName));
                 List<Element> elements = xpathExpression.evaluate(document);
                 allFeatures.add(FeatureBuilder.buildFeature(field.getName(), elements));
             }

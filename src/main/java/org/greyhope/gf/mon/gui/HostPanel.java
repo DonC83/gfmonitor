@@ -1,14 +1,12 @@
 package org.greyhope.gf.mon.gui;
 
 import com.googlecode.lanterna.gui.Border;
-import com.googlecode.lanterna.gui.TextGraphics;
 import com.googlecode.lanterna.gui.Theme.Category;
-import com.googlecode.lanterna.gui.Window;
 import com.googlecode.lanterna.gui.component.Label;
 import com.googlecode.lanterna.gui.component.Panel;
-import com.googlecode.lanterna.gui.component.TextBox;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.TerminalSize;
+import org.greyhope.gf.mon.properties.Properties;
 
 /**
  * @author greyhope
@@ -24,13 +22,13 @@ public class HostPanel extends Panel{
       
       // Set the Host panel
       addComponent(new Label("Host : ", Terminal.Color.BLACK, true));
-      Label hostName = new Label("192.168.6.197",15);
+      Label hostName = new Label(Properties.HOST,15);
       hostName.setStyle(Category.TEXTBOX);
       addComponent(hostName);
       
       // Set the Port panel 
       addComponent(new Label("Port : ", Terminal.Color.BLACK, true));
-      Label hostPort = new Label("4848",4);
+      Label hostPort = new Label(String.valueOf(Properties.PORT),4);
       hostPort.setStyle(Category.TEXTBOX);
       addComponent(hostPort);
       

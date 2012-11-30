@@ -16,9 +16,7 @@ public class ApplicationFeature extends ListenerComponent{
     private List<Application> apps;
     
     public synchronized void fireEvent(FeatureEvent f){
-        for(FeatureListener ft : getFeatureListener()){
-            ft.featureChanged(f);
-        }
+        
     }
     
 }

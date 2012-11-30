@@ -6,7 +6,7 @@ import java.io.Serializable;
  *
  * @author greyhope
  */
-public class BaseFeature extends ListenerComponent implements Serializable{
+public class BaseFeature implements Serializable{
     
      private long _count;
     private String _highwatermark;
@@ -21,12 +21,14 @@ public class BaseFeature extends ListenerComponent implements Serializable{
     private String _lowwatermark;
     private String _mintime;
     private String _maxtime;
+    private String fieldName;
 
     public BaseFeature(String name) {
         
         super();
         
-        this._name = name;
+        this.fieldName = name;
+        this._name = "";
         this._count = 0;
         this._highwatermark = "";
         this._lastsampletime = 0;
@@ -42,6 +44,14 @@ public class BaseFeature extends ListenerComponent implements Serializable{
         this._maxtime = "";
     }
 
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+    
     public long get_count() {
         return _count;
     }
@@ -144,12 +154,6 @@ public class BaseFeature extends ListenerComponent implements Serializable{
 
     public void set_upperbound(String _upperbound) {
         this._upperbound = _upperbound;
-    }
-    
-    public synchronized void fireEvent(FeatureEvent f){
-        for(FeatureListener ft : getFeatureListener()){
-            ft.featureChanged(f);
-        }
     }
 
     @Override
