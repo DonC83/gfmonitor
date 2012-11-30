@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import org.greyhope.gf.mon.framework.BaseFeature;
+import org.greyhope.gf.mon.utils.Functions;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -58,7 +59,12 @@ public class JDomReader {
         List<Element> elements = xpathExpression.evaluate(document);
         
         for(Element e : elements){
-            allApplications.add(e.getAttribute("key").getValue());
+            if(Functions.ignoredApplications.contains(e.getAttribute("key").getValue())){
+                // Ignore this app
+            }else{
+                allApplications.add(e.getAttribute("key").getValue());
+            }
+            
         }
        
         return allApplications;

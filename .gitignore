@@ -18,3 +18,5 @@ target/maven-archiver/pom.properties
 target/surefire-reports/TEST-org.greyhope.gf.monitoring.AppTest.xml
 
 target/surefire-reports/org.greyhope.gf.monitoring.AppTest.txt
+
+target/test-classes/.netbeans_automatic_build

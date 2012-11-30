@@ -48,11 +48,13 @@ public class ApplicationTask implements Runnable{
         try {
             allApplications =  JDomReader.getStringList(response, Applications.XPATH);
             
+            // Get the selected item
             int selected = panel.getAppList().getSelectedIndex();
             
+            // Clear the panel of all the deployed apps
             panel.getAppList().clearItems();
-            
-            //System.out.println("Selected : " + selected);
+
+            // An integer count value, purely for display purposes
             int count = 1;
             
             for(String s : allApplications){
@@ -60,9 +62,11 @@ public class ApplicationTask implements Runnable{
                 count++;
             }
             
+            // If nothing was selected then set the selector bar to the first item
             if(selected == -1){
                 panel.getAppList().setSelectedItem(0);
             }else{
+                // Set the selected item to be selected
                 panel.getAppList().setSelectedItem(selected);
             }
             

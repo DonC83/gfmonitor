@@ -1,8 +1,6 @@
 package org.greyhope.gf.mon.gui;
 
-import com.googlecode.lanterna.gui.Action;
 import com.googlecode.lanterna.gui.Border;
-import com.googlecode.lanterna.gui.component.ActionListBox;
 import com.googlecode.lanterna.gui.component.Panel;
 import com.googlecode.lanterna.gui.component.Table;
 import com.googlecode.lanterna.terminal.TerminalSize;
