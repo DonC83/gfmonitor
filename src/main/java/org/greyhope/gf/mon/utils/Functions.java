@@ -12,6 +12,8 @@ public class Functions {
 
     public static final String SPACE_CHAR = "+";
     public static List<String> ignoredApplications;
+    public static List<String> ignoredBeanMethods;
+    
 
     public static void init() {
 
@@ -19,7 +21,18 @@ public class Functions {
         ignoredApplications.add("__admingui");
         ignoredApplications.add("__default-web-module");
         ignoredApplications.add("wstx-services");
-
+        
+        ignoredBeanMethods = new ArrayList<String>();
+        ignoredBeanMethods.add("equals-java.lang.Object");
+        ignoredBeanMethods.add("getClass");
+        ignoredBeanMethods.add("hashCode");
+        ignoredBeanMethods.add("notify");
+        ignoredBeanMethods.add("notifyAll");
+        ignoredBeanMethods.add("toString");
+        ignoredBeanMethods.add("wait");
+        ignoredBeanMethods.add("wait-long");
+        ignoredBeanMethods.add("wait-long-int");
+        
     }
 
     public static Date getDateFromUnixEpoch(String date) {
