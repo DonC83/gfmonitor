@@ -35,7 +35,7 @@ public class MemoryTask extends BaseTask implements Runnable {
     @Override
     public void run() {
         
-        System.out.println("Memory task started");
+        //System.out.println("Memory task started");
 
         // Set the resource
         setResource(getBaseURL().concat(Memory.URL).concat(".xml"));
@@ -76,7 +76,6 @@ public class MemoryTask extends BaseTask implements Runnable {
         }
 
         // Change Event happened
-
 
     }
 }

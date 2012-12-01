@@ -1,16 +1,24 @@
 package org.greyhope.gf.mon.start;
 
+import java.util.Date;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.greyhope.gf.mon.gui.ConsoleMonitoring;
 import org.greyhope.gf.mon.gui.DomainPanel;
 import org.greyhope.gf.mon.gui.HostPanel;
 import org.greyhope.gf.mon.gui.RamPanel;
+
 import org.greyhope.gf.mon.properties.Properties;
+
 import org.greyhope.gf.mon.tasks.MemoryTask;
+
 import org.greyhope.gf.mon.tree.Memory;
+
 import org.greyhope.gf.mon.utils.Functions;
 
 public final class Starter {
@@ -19,9 +27,15 @@ public final class Starter {
     private ScheduledExecutorService ramWindowTaskScheduler = null;
     private ConsoleMonitoring console;
     
+    private static final Logger LOGGER = Logger.getLogger(Starter.class);
+    
+    private static final String SOFTWARE_DIR = "/gm/conf/";
+    
     private Memory memory;
 
     public Starter(Properties.CONNECTION connectionType) throws Exception {
+        
+        LOGGER.info("Glassfish monitoring started : " + new Date());
 
         // Create Main GUI Components (actually the components which are registered as listeners for data)
         HostPanel hostPanel = new HostPanel();
@@ -45,6 +59,16 @@ public final class Starter {
         
     }
     
+    public static void initLogging(){
+        try {
+            DOMConfigurator.configureAndWatch(SOFTWARE_DIR + "log4j.xml", 10000L);
+        } catch (Exception domex) {
+            System.out.println("Log4j Setup issue : " + domex.getMessage());
+            System.exit(1);
+        }
+
+    }
+    
     public void initServices(Properties.CONNECTION connectionType){
         // Set the RAM First 
         initRAMService(connectionType);
@@ -64,6 +88,8 @@ public final class Starter {
 
         Properties.init();
         Functions.init();
+        
+        initLogging();
 
         try {
             Starter src = new Starter(Properties.appConnection);

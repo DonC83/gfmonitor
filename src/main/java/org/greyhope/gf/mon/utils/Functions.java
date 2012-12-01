@@ -61,7 +61,7 @@ public class Functions {
         
         long unused = bytesToMb(maxTotal) - bytesToMb(usedHeap);
         
-        System.out.println("Unused : " + unused);
+        //System.out.println("Unused : " + unused);
         return unused;
     }
     

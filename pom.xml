@@ -220,5 +220,13 @@
             <version>1.4.01</version>
         </dependency>
         
+          <dependency>
+            <groupId>org.apache.log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.15</version>
+            <scope>compile</scope>
+        </dependency>
+
+        
     </dependencies>
 </project>
