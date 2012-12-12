@@ -6,51 +6,53 @@ import org.greyhope.gf.mon.builder.JDomReader;
 import org.greyhope.gf.mon.properties.Properties;
 import org.greyhope.gf.mon.properties.Properties.CONNECTION;
 import org.greyhope.gf.mon.rest.RestClient;
-import org.greyhope.gf.mon.tree.Applications;
+import org.greyhope.gf.mon.tree.DeployedApplication;
 import org.jdom2.JDOMException;
 
 /**
  *
  * @author greyhope
  */
-public class ApplicationTask implements Runnable{
+public class ModuleTask{
     
     private RestClient client;
     private String name;
     private CONNECTION connType;
     private String baseURL;
     private String resource;
-    private Applications applications;
+    private DeployedApplication applicationModules;
+    private List<String> allApplications;
+    private String appName;
     
-    public ApplicationTask(Properties.CONNECTION connectionType, String baseUrl,Applications applications){
+    public ModuleTask(Properties.CONNECTION connectionType, String baseUrl,DeployedApplication applicationModules, String appName){
         connType = connectionType;
         client = new RestClient(connType);
         baseURL = baseUrl;
         resource = new String();
-        this.applications = applications;
+        this.applicationModules = applicationModules;
+        this.appName = appName;
     }
 
-    @Override
+    public List<String> getAllApplications() {
+        return allApplications;
+    }
+
+    public void setAllApplications(List<String> allApplications) {
+        this.allApplications = allApplications;
+    }
+    
     public void run() {
         
         // Set the resource
-        resource = baseURL.concat(Applications.URL).concat(".xml");
+        resource = baseURL.concat(DeployedApplication.URL.replaceAll("%", appName)).concat(".xml");
         //System.out.println("Resource : " + resource);
         client.setResource(resource);
         
         String response = client.get_XML(String.class);
         //System.out.println("XML Response : " + response);
         
-        List<String> allApplications;
-        
         try {
-            allApplications =  JDomReader.getStringList(response, Applications.XPATH);
-            
-            applications.setApplications(allApplications);
-            
-            // System.out.println("Applications count : " + allApplications.size());
-            
-            applications.fireEvent();
+            allApplications =  JDomReader.getStringList(response, DeployedApplication.XPATH);
             
         } catch (JDOMException ex) {
             System.err.println("Exception Response : " + ex.getMessage());
@@ -66,5 +68,6 @@ public class ApplicationTask implements Runnable{
             System.err.println("Exception Response : " + ex.getMessage());
         }
     }
+    
     
 }

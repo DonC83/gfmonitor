@@ -1,9 +1,8 @@
 package org.greyhope.gf.mon.tree;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.greyhope.gf.mon.applications.Application;
-import org.greyhope.gf.mon.applications.ApplicationModule;
-import org.greyhope.gf.mon.applications.Module;
 import org.greyhope.gf.mon.framework.FeatureEvent;
 import org.greyhope.gf.mon.framework.FeatureListener;
 import org.greyhope.gf.mon.framework.ListenerComponent;
@@ -17,11 +16,12 @@ public class DeployedApplication extends ListenerComponent implements Applicatio
     public static final String URL = "server/applications/%";
     public static final String XPATH = "//entry/map/entry/map/*";
     
-    List<Module<ApplicationModule>> applicationModules;
+    List<String> applicationModules;
     private String serviceName;
 
     public DeployedApplication(String serviceName) {
         this.serviceName = serviceName;
+        applicationModules = new ArrayList<String>();
     }
 
     public String getServiceName() {
@@ -33,7 +33,7 @@ public class DeployedApplication extends ListenerComponent implements Applicatio
     }
     
     @Override
-    public List<Module<ApplicationModule>> getModules() {
+    public List<String> getModules() {
         return applicationModules;
     }
     

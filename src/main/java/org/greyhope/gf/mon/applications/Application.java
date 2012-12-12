@@ -8,6 +8,6 @@ import java.util.List;
  */
 public interface Application {
     
-    public List<Module<ApplicationModule>> getModules();
+    public List<String> getModules();
     
 }

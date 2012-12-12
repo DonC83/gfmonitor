@@ -12,7 +12,7 @@ import org.greyhope.gf.mon.properties.Properties;
 public class ConsoleMonitoring {
     
     protected static Screen screen;
-    protected static GUIScreen guiScreen;
+    public static GUIScreen guiScreen;
     private MainWindow mainWindow;
     public static Properties.CONNECTION conn;
 
@@ -24,20 +24,22 @@ public class ConsoleMonitoring {
         this.mainWindow = mainWindow;
     }
     
-    public ConsoleMonitoring(Properties.CONNECTION connectionType,HostPanel h,DomainPanel d,RamPanel r){
+    public ConsoleMonitoring(Properties.CONNECTION connectionType,HostPanel h,DomainPanel d,RamPanel r, MainPanel m){
         screen = TerminalFacade.createScreen(new SwingTerminal());
         screen.startScreen();
         ConsoleMonitoring.guiScreen = TerminalFacade.createGUIScreen(screen);
         ConsoleMonitoring.conn = connectionType;
-        build(h,d,r);
+        build(h,d,r,m);
     }
     
-    private void build(HostPanel h,DomainPanel d,RamPanel r){
+    private void build(HostPanel h,DomainPanel d,RamPanel r,MainPanel m){
         
         // Create the host window
-        mainWindow = new MainWindow(conn,h,d,r);
+        mainWindow = new MainWindow(conn,h,d,r,m);
         ConsoleMonitoring.guiScreen.showWindow(mainWindow, GUIScreen.Position.CENTER);
         
     }
+    
+    
    
 }

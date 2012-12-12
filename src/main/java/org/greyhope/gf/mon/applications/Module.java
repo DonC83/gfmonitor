@@ -7,7 +7,7 @@ import org.greyhope.gf.mon.framework.BaseFeature;
  *
  * @author greyhope
  */
-public class Module<ApplicationModule> {
+public class Module {
     
     public static final String URL = "server/applications/%/%";
     public static final String XPATH = "//entry/map/entry/map/entry[@key='%']/map/*";

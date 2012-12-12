@@ -16,7 +16,7 @@ public class MainWindow extends Window{
     DomainPanel domainPanel;
     RamPanel ramPanel;
     
-    public MainWindow(Properties.CONNECTION connectionType,HostPanel h,DomainPanel d,RamPanel r){
+    public MainWindow(Properties.CONNECTION connectionType,HostPanel h,DomainPanel d,RamPanel r, MainPanel m){
         super("");
         
         TerminalSize size = new TerminalSize(170,62);
@@ -33,8 +33,7 @@ public class MainWindow extends Window{
         statusPanel.addComponent(ramPanel);
         
         Panel middlePanel = new Panel(new Border.Invisible(), Panel.Orientation.HORISONTAL);
-        MainPanel mainPanel = new MainPanel();
-        middlePanel.addComponent(mainPanel);
+        middlePanel.addComponent(m);
         
         Panel lowerPanel = new Panel(new Border.Invisible(), Panel.Orientation.HORISONTAL);
         ControlPanel controlPanel = new ControlPanel();
